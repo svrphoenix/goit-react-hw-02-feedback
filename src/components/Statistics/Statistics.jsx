@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { FEEDBACK_OPTIONS } from 'constants/optionsName';
 import { Container, Title, List } from './Statistics.styled';
 
@@ -17,3 +18,13 @@ export const Statistics = ({ feedbacks, total, positivePercentage }) => (
     <p>Positive feedback: {positivePercentage}</p>
   </Container>
 );
+
+Statistics.propTypes = {
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.string.isRequired,
+  feedbacks: PropTypes.shape({
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+  }),
+};

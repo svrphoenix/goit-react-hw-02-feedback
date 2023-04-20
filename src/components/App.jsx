@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
 import { Section } from './Section/Section';
@@ -52,3 +53,11 @@ export class App extends Component {
     );
   }
 }
+
+Statistics.propTypes = {
+  defaultProps: PropTypes.shape({
+    good: PropTypes.number,
+    neutral: PropTypes.number,
+    bad: PropTypes.number,
+  }),
+};
