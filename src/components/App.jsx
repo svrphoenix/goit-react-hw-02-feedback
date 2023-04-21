@@ -54,7 +54,7 @@ export class App extends Component {
   }
 }
 
-Statistics.propTypes = {
+App.propTypes = {
   defaultProps: PropTypes.shape({
     good: PropTypes.number,
     neutral: PropTypes.number,
