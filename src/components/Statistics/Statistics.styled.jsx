@@ -11,3 +11,7 @@ export const Title = styled.h2`
 export const List = styled.ul`
   margin-top: 1rem;
 `;
+
+export const Text = styled.p`
+  text-transform: capitalize;
+`;

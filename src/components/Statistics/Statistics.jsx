@@ -1,16 +1,15 @@
 import PropTypes from 'prop-types';
-import { FEEDBACK_OPTIONS } from 'constants/optionsName';
-import { Container, Title, List } from './Statistics.styled';
+import { Container, Title, List, Text } from './Statistics.styled';
 
 export const Statistics = ({ feedbacks, total, positivePercentage }) => (
   <Container>
     <Title>Statistics</Title>
     <List>
-      {Object.keys(feedbacks).map((item, idx) => (
-        <li key={idx}>
-          <p>
-            {FEEDBACK_OPTIONS[item]}: <span>{feedbacks[item]}</span>
-          </p>
+      {Object.keys(feedbacks).map(key => (
+        <li key={key}>
+          <Text>
+            {`${key}: ${feedbacks[key]}`}
+          </Text>
         </li>
       ))}
     </List>
@@ -23,8 +22,8 @@ Statistics.propTypes = {
   total: PropTypes.number.isRequired,
   positivePercentage: PropTypes.string.isRequired,
   feedbacks: PropTypes.shape({
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  }),
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
 };

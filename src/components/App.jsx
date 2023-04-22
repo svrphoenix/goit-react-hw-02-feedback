@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
 import { Section } from './Section/Section';
@@ -7,13 +6,11 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Notification } from './Notification/Notification';
 
 export class App extends Component {
-  static defaultProps = {
+  state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
-
-  state = { ...this.props };
 
   addFeedback = feedback => {
     this.setState(state => ({ [feedback]: state[feedback] + 1 }));
@@ -26,9 +23,7 @@ export class App extends Component {
     const PositiveFeedbackPercentage = Math.round(
       (this.state.good / this.countTotalFeedback()) * 100
     );
-    return PositiveFeedbackPercentage
-      ? `${PositiveFeedbackPercentage}%`
-      : 'There are no positive feedbacks!';
+    return `${PositiveFeedbackPercentage}%`
   };
 
   render() {
@@ -53,11 +48,3 @@ export class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  defaultProps: PropTypes.shape({
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-  }),
-};

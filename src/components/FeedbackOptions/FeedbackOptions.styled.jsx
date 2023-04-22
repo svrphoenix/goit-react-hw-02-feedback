@@ -8,8 +8,9 @@ export const List = styled.ul`
 
 export const FeedbackButton = styled.button`
   cursor: pointer;
+  text-transform: capitalize;
   border-radius: 0.25rem;
-  border: .0625rem solid gray;
+  border: 0.0625rem solid gray;
   :hover,
   :focus {
     color: rgb(255, 255, 255);
